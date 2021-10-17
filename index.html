@@ -20,7 +20,7 @@
     <div class="col-md-12">
       
 
-      <nav>  <ul style="background-color:black;">
+      <nav>  <ul style="background-image: url(h123.png);">
         
          
          <br>
@@ -45,9 +45,11 @@
          </button>
           <div sytle="display:none; float:right" class="dropdown-content">
             <br><br>
-            <a style="color: lightblue;" href="https://forcecoin.net/#Intro">Forcecoin Intro</a>
+            <a style="color: lightblue;" href="https://forcecoin.net/#tobuy">How to buy</a>
             <br>
-            <a style="color: lightblue;" href="//eve.kean.edu/~medelluc/#buy">Objective</a>
+            <a style="color: lightblue;" href="https://forcecoin.net/#Intro">FRC Volume</a>
+            <br>
+            <a style="color: lightblue;" href="https://charts.bogged.finance/">FRC chart</a>
             <br>
             <a style="color: lightblue;" href="https://forcecoin.net/#Crypto1">Contact us</a>
           </div>
@@ -70,15 +72,16 @@
      
        
            
-           <div style="background-image: url(h1.png);" class="col-md-12">
+           <div style="background-image: url(h12.PNG);" class="col-md-12">
             <div class="shop-item">
          
             <h3 style= color:lightblue;">Welcome to Forcecoin</h3>
            
           
-              <img class="shop-item-image" src="newlogo1.PNG" width="280" height="250"> 
-              <br>
-            <br>
+          
+
+            <iframe width="350" height="315" src="https://www.youtube.com/embed/YFK3UUI7qhE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <h3 id=Intro style="color: lightblue;"> </h3>. 
 
               <h7  style="color: lightblue;"> Forcecoin  is a new open source peer-to-peer digital currency, 100% community driven.</h7>
               <br>
@@ -92,17 +95,136 @@
      
                <button style="background-color: black; border-radius: 25px; background-size: 100px 40px;;border:2px solid lightblue; ; width: 105px; height: 55px; color: white;" type="button"  onclick="location.href=&#39; https://forcecoin.net/#buy/?hl=en&#39;;" >How to buy</button>
                <button style="background-color: black; border-radius: 25px; background-size: 100px 40px;;border:2px solid lightblue; ; width: 100px; height: 55px; color: white;" type="button"  onclick="location.href=&#39; https://charts.bogged.finance/?hl=en&#39;" >FRC Chart</button>
-               <button style="background-color: black; border-radius: 25px; background-size: 100px 40px;;border:2px solid lightblue; ; width: 125px; height: 53px; color: white;" type="button"  onclick="location.href=&#39; https://pancakeswap.finance/?hl=en&#39;" >Panckake swap</button>
-              <br>
-              <h7  style="color: lightblue;"> Realeasing soon !!</h7>
+               <button style="background-color: black; border-radius: 25px; background-size: 100px 40px;;border:2px solid lightblue; ; width: 125px; height: 53px; color: white;" type="button"  onclick="location.href=&#39; https://pancakeswap.finance/?hl=en&#39;" >Listed Platform</button>
+               <button style="background-color: black; border-radius: 25px; background-size: 100px 40px;;border:2px solid lightblue; ; width: 100px; height: 55px; color: white;" type="button"  onclick="location.href=&#39; https://www.paypal.com/paypalme/forcecoin/?hl=en&#39;" >Donate</button>
+               <br>
+               <br>
+               <button class="btn btn-primary shop-item-button" style="background-image: url(twit.PNG);border: none; ; width: 95px; height: 42px;
+          background-size: 100px 40px; " onclick="location.href=&#39https://twitter.com/forcecoin7&#39;;"
+                ;="" type="button"></button>
+  
+ 
+          <button class="btn btn-primary shop-item-button" style="background-image: url(insta.PNG);border: none; ; width: 95px; height: 45px;
+          background-size: 100px 40px; " onclick="location.href=&#39;//www.instagram.com/forcecoin1/?hl=en&#39;"
+                ;="" type="button"></button>
+                <button class="btn btn-primary shop-item-button" style="background-image: url(tic.PNG);border: none; ; width: 87px; height: 47px;
+                background-size: 100px 40px; " onclick="location.href=&#39;//www.instagram.com/forcecoin1/?hl=en&#39;"
+                      ;="" type="button"></button>
+                <button class="btn btn-primary shop-item-button" style="background-image: url(tel2.PNG);border: none; ; width: 95px; height: 44px;
+          background-size: 100px 40px; " onclick="location.href=&#39;https://t.me/joinchat/Tk9tZFCPT9AyZmRh/?hl=en&#39;"
+                ;="" type="button"></button>
 
+                <br>
+                
+              <h7  style="color: lightblue;"> Launching to the Moon in</h7>
+                                         <p id="demo"></p>
+              
+      
+
+              <link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/gh/bitquery/widgets@v1.3.8/dist/assets/css/widgets.css">
+              <script src="https://cdn.jsdelivr.net/gh/bitquery/widgets@v1.3.8/dist/widgets.js"></script>
+              <div id="trades_by_time"></div>
+              <script>
+                  (function(){
+                  widgets.init('https://graphql.bitquery.io', 'BQY8IPItkNCP0iK8BqvmhSWV1px51210', {locale: 'en', theme: 'light'});
+                  var query = new widgets.query(`
+                          query ($network: EthereumNetwork!,
+                                $dateFormat: String!,
+                                $token: String!,
+                                $from: ISO8601DateTime,
+                                $till: ISO8601DateTime){
+                                  ethereum(network: $network ){
+                                    dexTrades(options:{asc: "date.date"}, date: {
+                                      since: $from
+                                      till: $till}
+                                      baseCurrency: {is: $token}
+                                    ) {
+                                      date: date{
+                                        date(format: $dateFormat)
+                                      }
+                                          trades: count
+                                          amount: baseAmount
+                                          baseCurrency{symbol}
+                                          contracts: count(uniq: smart_contracts)
+                                          currencies: count(uniq: quote_currency)
+                                    }
+                                  }
+                                }`);
+                  var wdts = new widgets.chartByTime('#trades_by_time', query, 'ethereum.dexTrades', {
+               "title": "Trades by time",
+               "chartOptions": {
+                 
+                "vAxes": {
+                 
+                 "0": {
+                  
+                  "title": "FRC Trades Count",
+                
+              
+                 }
+                },
+                "seriesType": "bars",
+                "series": {
+                 "0": {
+                  "color": "#800080"
+                 }
+                }
+               },
+               "dataOptions": [
+                {
+                 "title": {
+                  "label": "Date",
+                  "type": "date",
+                  
+                 },
+                 "path": "date.date"
+                 
+                },
+                {
+                 "title": " FRC Trades Volume",
+                 "path": "trades"
+                }
+              
+                
+               ]
+              });
+                  query.request( {"limit": 10, "offset": 0, "network": "bsc", "token": "0x030C458361a472e43Ce0290e13e83908f3461871", "from": null, "till": null, "dateFormat": "%Y-%m"} );
+                  })()
+              
+                  
+              </script>
+                           
+             
+
+
+              <div id="container">
+                <div id="left" > 
+                    <h3 style= color:lightblue;>What is forcecoin </h3>
+  
+                    <iframe width="350" height="315" src="https://www.youtube.com/embed/ROBjIletmCI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3 id=Intro style="color: lightblue;"> </h3>. 
+     </div>
               <div style="background-image: url(h2.PNG);" class="col-md-12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Display the countdown timer in an element -->
-<p id="demo"></p>
+
 
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Oct 5, 2021 15:37:25").getTime();
+var countDownDate = new Date("Nov 1, 2021 15:37:25").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -137,31 +259,30 @@ var x = setInterval(function() {
             </div>
          
             
-            <img class="shop-item-image" src="tes1.PNG" width="280" height="250"> 
-
-            <div id="container">
-              <div id="left" > 
-                  <h3 style= color:lightblue;>What is forcecoin </h3>
-
-                  <iframe width="350" height="315" src="https://www.youtube.com/embed/ROBjIletmCI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  <h3 id=Intro style="color: lightblue;"> </h3>. 
-   </div>
-              <div id="center">   <h3 style= color:lightblue;>Forcecoin Gold </h3>
+           
+              <div id="center"> 
                
-        <iframe width="350" height="315" src="https://www.youtube.com/embed/bxCuVbwRiIQ" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+              
+                      
+            
+                  <img class="shop-item-image" src="tes1.PNG" width="280" height="250"> 
+                    <h3 style="color: lightblue;"> Forcecoin Token Statistics</h3>
+      
+      
+      
+                    <img  class="shop-item-image" src="downarrow.PNG" width="200" height="25">
+      
+                    <p style="color: lightgreen;" id="p1">Total Supply:     $226,142,246,534</p>
+                    <p style="color: lightgreen;" id="p3">Token Adress: Releasing 11/01/21</p>
+                    <p style="color: lightgreen;" id="p3">Listed Platforms: Panckake Swap, BoggedFinance, Dextools </p>
+      
+      
+              </div>
         
-</div>
+
 
               
-              <div id="right"> 
-                <iframe width="350" height="315" src="https://www.youtube.com/embed/QvfEDh-haF4"
-         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
-              
-            </div>
-
+          
             <br>
            
 
@@ -176,31 +297,9 @@ var x = setInterval(function() {
 
         
            
-      <div style="background-image: url(h2.PNG);" class="col-md-12">
+      <div style="background-image: url(h12.PNG);" class="col-md-12">
   
-      <div style="" id="love" class="col-md-12">
-      <h3 style="color: lightblue;"> Forcecoin Statistics</h3>
-      <img  class="shop-item-image" src="downarrow.PNG" width="200" height="25">
-</div>
-  
-
-    
-     
-        <p style="color: lightgreen;" id="p1">Total Supply:     $226,142,246,534</p>
-        <p style="color: lightgreen;" id="p2">Token Type: BEp-20</p>
-        <p style="color: lightgreen;" id="p2">Liquidity:  $8,000 </p>
-        <p style="color: lightgreen;" id="p3">Token Adress: Releasing once Liquidity is locked</p>
-        <p style="color: lightgreen;" id="p3">Listed Platforms when launched: Panckake Swap, BoggedFinance, Poocoins </p>
-        <img  class="shop-item-image" src="upd1.PNG" width="340" height="75">
-        <br>
-        <br>
-        <img  class="shop-item-image" src="uparrow.PNG" width="200" height="25">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-       </div>
+      
         <div  id="container2">
         <div style="" id="love" class="col-md-12">
         <h3 style="color: lightblue;"> What is Forcecoin? </h3>
@@ -275,7 +374,7 @@ var x = setInterval(function() {
   <div id="left" > 
    
 
-      <h3 style="color: lightblue;"> Swap for any Smartchain token below   </h3>.
+      <h3 style="color: lightblue;"> Swap tokens below   </h3>.
       <img  class="shop-item-image" src="downarrow.PNG" width="200" height="25">
       <br>
       <br>
@@ -299,7 +398,7 @@ var x = setInterval(function() {
    
 
  <br>
-    <h3 id='buy' style="color: lightblue;"> Quick Start Guide</h3>
+    <h3 id='tobuy' style="color: lightblue; "> Quick Start Guide</h3>
     <br>
   
 
@@ -364,7 +463,7 @@ background-size: 100px 40px; " onclick="location.href=&#39https://metamask.io&#3
 
 
 
-      <button class="btn btn-primary shop-item-button" style="background-image: url(bnb.PNG);border: none; ; width: 95px; height: 41px;
+      <button class="btn btn-primary shop-item-button" style="background-image: url(bnb1.PNG);border: none; ; width: 95px; height: 41px;
 background-size: 100px 40px; " onclick="alert('You pressed the button!')"
       ;="" type="button"></button>
       
@@ -416,8 +515,7 @@ background-size: 100px 40px; " onclick="alert('You pressed the button!')"
 
 <img  class="shop-item-image" src="uparrow.PNG" width="200" height="25">
 <br>
-<br>
-<br>
+
 
 <br>
 <br>
@@ -488,19 +586,21 @@ background-size: 100px 40px; " onclick="location.href=&#39https://metamask.io&#3
 
       <input style="color: white; background-color: black; width: 100px; height: 50px; border-radius: 20px;" type="text" value="Smart Chain" id="myInput">
       <button style="background-color: purple; border-radius: 20px;" onclick="myFunction()">Copy </button>
-      
-      <input style="color: white; background-color: black; width: 250px; height: 50px; border-radius: 20px;" type="text" value="https://bsc-dataseed.binance.org/" id="myInput1">
+      <br>
+      <input style="color: white; background-color: black; width: 100px; height: 50px; border-radius: 20px;" type="text" value="https://bsc-dataseed.binance.org/" id="myInput1">
       <button style="background-color: purple; border-radius: 20px;" onclick="myFunction1()">Copy </button>
       <br>
-      <br>
+   
       <input style="color: white; background-color: black; width: 50px; height: 50px; border-radius: 20px;" type="text" value="56" id="myInput2">
       <button style="background-color: purple; border-radius: 20px;" onclick="myFunction2()">Copy </button>
-     
+      <br>
+   
       
       <input style="color: white; background-color: black; width: 56px; height: 50px; border-radius: 20px;" type="text" value=" BNB" id="myInput3">
       <button style="background-color: purple; border-radius: 20px;" onclick="myFunction3()">Copy </button>
+      <br>
    
-      <input style="color: white; background-color: black; width: 150px; height: 50px; border-radius: 20px;" type="text" value="https://bscscan.com" id="myInput4">
+      <input style="color: white; background-color: black; width: 100px; height: 50px; border-radius: 20px;" type="text" value="https://bscscan.com" id="myInput4">
       <button style="background-color: purple; border-radius: 20px;" onclick="myFunction4()">Copy </button>
       
       
@@ -521,7 +621,7 @@ background-size: 100px 40px; " onclick="location.href=&#39https://metamask.io&#3
       
       
       
-            <button class="btn btn-primary shop-item-button" style="background-image: url(bnb.PNG);border: none; ; width: 95px; height: 41px;
+            <button class="btn btn-primary shop-item-button" style="background-image: url(bnb1.PNG);border: none; ; width: 95px; height: 41px;
       background-size: 100px 40px; " onclick="alert('You pressed the button!')"
             ;="" type="button"></button>
             
@@ -579,18 +679,18 @@ background-size: 100px 40px; " onclick="location.href=&#39https://metamask.io&#3
                 ;="" type="button"></button>
 
   
-      <div class="col-md-12">
+      <div style="background-image: url(h12.png);" class="col-md-12">
    
        
         
 
-      </div>
+     
      
      
       
   
     
-    <form id="Crypto1" style="background-color: black; color:limegreen; border-radius: 20px;  " action="mailto:forcecoin7@gmail.com" method="post" enctype="text/plain">
+    <form id="Crypto1" style="background-image: url(h12.png); color:limegreen; border-radius: 20px;  " action="mailto:forcecoin7@gmail.com" method="post" enctype="text/plain">
     
       
     
@@ -612,11 +712,207 @@ background-size: 100px 40px; " onclick="location.href=&#39https://metamask.io&#3
     
     </form>
 
-    
+</div>
 
     
     <br>  
 
+    
+
+<h3 style="color:purple;"> Forcecoin Transactions </h3>
+<br>
+<link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/gh/bitquery/widgets@v1.3.8/dist/assets/css/widgets.css">
+<script src="https://cdn.jsdelivr.net/gh/bitquery/widgets@v1.3.8/dist/widgets.js"></script>
+<div id="smart_contract_transactions"></div>
+
+<ul style="color: pink;"></ul>
+
+<script id="left">
+  
+    (function(){
+    widgets.init('https://graphql.bitquery.io', 'BQY8IPItkNCP0iK8BqvmhSWV1px51210', {locale: 'en', theme: 'light'});
+    var query = new widgets.query(`query ($network: EthereumNetwork!,
+                    $address: String!,
+                    $limit: Int!,
+                    $offset: Int!
+                    $from: ISO8601DateTime,
+                    $till: ISO8601DateTime){
+                ethereum(network: $network){
+                  smartContractCalls(options:{desc: "block.timestamp.time", limit: $limit, offset: $offset},
+                    date: {since: $from till: $till },
+                    smartContractAddress: {is: $address}) {
+                      
+                    block {
+                      
+                      timestamp {
+                        
+                        time (format: "%Y-%m-%d %H:%M:%S")
+                      }
+                      height
+                    }
+                    smartContractMethod {
+                      name
+                      signatureHash
+                    }
+                    address: caller {
+                      address
+                      annotation
+                    }
+                    transaction {
+                      hash
+                    }
+                    gasValue
+                    external
+                  }
+                }
+              }`);
+              
+    var  wdts = new widgets.table('#smart_contract_transactions', query, 'ethereum.smartContractCalls', {
+ "title": "Latest Transactions",
+ "dataOptions": [
+  {
+   "title": "Timestamp",
+   "type": "string",
+   "path": "block.timestamp.time"
+   
+  },
+  {
+   "title": "Block",
+   "type": "string",
+   "path": "block.height",
+   "urlCallbackName": "block_path"
+  },
+  {
+   "title": "Method",
+   "type": "string",
+   "path": [
+    "smartContractMethod.name",
+    "smartContractMethod.signatureHash"
+   ],
+   "urlCallbackName": "smart_contract_method_path"
+  },
+  {
+   "title": "Caller",
+   "type": "string-ellipsis",
+   "path": [
+    "address.annotation",
+    "address.address"
+   ],
+   "urlCallbackName": "address_path"
+  },
+  
+  
+ ]
+});
+
+    query.request({"limit": 10, "offset": 0, "network": "bsc", "address": "0x030C458361a472e43Ce0290e13e83908f3461871", "from": null, "till": null, "dateFormat": "%Y-%m"});
+    })()
+
+ 
+</script>
+
+    
+     <ul id="Crypto1" style="background-color: black;">
+       
+        <marquee behavior="scroll" direction="right">   
+          <p><span id="datetime"></span></p>
+      
+      <script>
+      var dt = new Date();
+      document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+      
+      
+      function copyTextToClipboard(text) {mnn
+  var textArea = document.createElement("textarea");
+  textArea.value = text
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+
+  document.body.removeChild(textArea);
+}
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+      
+function myFunction1() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput1");
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+} 
+
+function myFunction2() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput2");
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+} 
+
+function myFunction3() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput3");
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+} 
+
+function myFunction4() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput4");
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+} 
+
+
+      
+      
+      </script>
       
     
      <ul id="Crypto1" style="background-color: black;">
@@ -719,11 +1015,26 @@ function myFunction4() {
 
       
       
-      </script>  </marquee>
+      </script>
+      
+    
+    
+    
+    
+    
+    </marquee>
+
+
+
+
      </ul>
       
      
     </div>  
+
+
+
+    
     
    
  </div></body></html>
