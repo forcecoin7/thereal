@@ -35515,7 +35515,7 @@ a.u-link.u-text-hover-grey-90:hover {
 
 /*end-variables sitestylecss*/
  .u-header {
-  background-image: linear-gradient(#e9f2fa, #478ac9);
+  background-image: none;
 }
 
 .u-header .u-sheet-1 {
@@ -35598,43 +35598,37 @@ a.u-link.u-text-hover-grey-90:hover {
     width: 66px;
     height: 66px;
     margin-top: 5px;
-    margin-left: -33px;
+    margin-left: -12px;
   }
 
   .u-header .u-text-1 {
-    margin-top: -24px;
-    margin-right: 85px;
-    margin-left: -85px;
+    margin-top: -45px;
   }
 
   .u-header .u-menu-1 {
     width: auto;
-    margin: -39px 14px 12px auto;
+    margin: -18px 14px 12px auto;
   }
 }
 .u-footer .u-sheet-1 {
   min-height: 120px;
 }
+
+.u-footer .u-text-1 {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 700;
+  text-align: center;
+  margin: 41px 0 41px 20px;
+}
 @media (max-width: 1199px) {
-  .u-footer .u-sheet-1 {
-    min-height: 99px;
+  .u-footer .u-text-1 {
+    margin-left: 0;
   }
 }
-@media (max-width: 991px) {
-  .u-footer .u-sheet-1 {
-    min-height: 76px;
-  }
-}
-@media (max-width: 767px) {
-  .u-footer .u-sheet-1 {
-    min-height: 57px;
-  }
-}
-@media (max-width: 575px) {
-  .u-footer .u-sheet-1 {
-    min-height: 36px;
-  }
-}
+
+
+
 
  /*begin-variables base-font-size*/ 
  html { font-size: 16px; }
